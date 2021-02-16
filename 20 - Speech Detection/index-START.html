@@ -25,7 +25,16 @@
     .map(result => result.transcript)
     .join('')
 
-    p.textContent = transcript
+    p.textContent = transcript;
+
+    if (evt.results[0].isFinal) {
+      p = document.createElement('p');
+      words.appendChild(p);
+    }
+
+    if (transcript.includes('get the weather')) {
+      words.append('https://www.metservice.com/towns-cities/locations/wellington')
+    }
 
     console.log(transcript);
   });
